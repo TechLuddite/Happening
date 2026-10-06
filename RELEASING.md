@@ -1,8 +1,8 @@
 # Releasing Happening
 
-Public repository target: `TechLuddite/Happening`. Mod-site owners: [TechLuddite on ModWorkshop](https://modworkshop.net/user/techluddite) and [TechLuddite on VostokMods](https://vostokmods.net/user/techluddite).
+Public repository: [TechLuddite/Happening](https://github.com/TechLuddite/Happening). Mod-site owners: [TechLuddite on ModWorkshop](https://modworkshop.net/user/techluddite) and [TechLuddite on VostokMods](https://vostokmods.net/user/techluddite).
 
-This source tree is prepared for first publication. The GitHub repository and Happening listings have not been created by this preparation. Version 0.1.0 uses the runtime already tested by the player. Building and running this repository's packaging checks need only Python's standard library.
+The GitHub repository is public. ModWorkshop and VostokMods listings remain unpublished drafts. Version 0.1.0 uses the runtime already tested by the player. Building and running this repository's packaging checks need only Python's standard library.
 
 ## Build the release files
 
@@ -18,17 +18,11 @@ Upload `dist/Happening.vmz`. GitHub also receives `dist/Happening.vmz.sha256`. F
 
 The archive explicitly includes only `mod.txt`, `Happening_LICENSE`, and the three scripts under `mods/Happening/`. The license has a mod-specific archive name so it does not mount over a shared `res://LICENSE` path. Documentation, listing text, artwork, scripts, and packaging tests remain in the source repository.
 
-## First GitHub publication
+## GitHub releases
 
-The prepared local repository uses branch `main` and origin `https://github.com/TechLuddite/Happening.git`. Inspect the files and initial commit before pushing. Authenticate with `gh auth status`, then create the empty public repository and push:
+The repository uses branch `main` and origin `https://github.com/TechLuddite/Happening.git`. For a new release, update the version in `mod.txt`, add the matching changelog section, and merge the reviewed changes to `main`.
 
-```sh
-gh repo create TechLuddite/Happening --public \
-  --description "An event on every shelter exit in Road to Vostok."
-git push -u origin main
-```
-
-**The first push to `main` automatically publishes GitHub release `v0.1.0`.** The workflow runs the standalone tests, builds the archive and checksum, verifies the downloaded artifact, and takes release notes from the matching changelog section. The release job has `contents: write`; pull requests only test/build. The prepared workflow uses GitHub's [documented release permission](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax).
+**A push to `main` automatically publishes `v<version>` when that version has no existing GitHub release and the workflow succeeds.** The workflow runs the standalone tests, builds the archive and checksum, verifies the downloaded artifact, and takes release notes from the matching changelog section. The release job has `contents: write`; pull requests only test/build. The workflow uses GitHub's [documented release permission](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax).
 
 An existing release is preserved. An existing tag pointing to a different commit causes the release job to fail rather than move that tag. An API failure is not treated as an absent release. Manual workflow dispatch on `main` can retry publication after an operational failure.
 
