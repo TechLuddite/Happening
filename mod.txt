@@ -1,0 +1,13 @@
+[mod]
+name="Happening"
+id="happening"
+version="0.1.0"
+
+[autoload]
+HappeningMain="res://mods/Happening/Main.gd"
+
+[hooks]
+res://Scripts/Transition.gd="Interact"
+res://Scripts/Loader.gd="LoadScene"
+res://Scripts/EventSystem.gd="GetAvailableEvents, ActivateWeeklyEvent, ActivateDynamicEvent, FighterJet"
+res://Scripts/Event.gd="Initialize"

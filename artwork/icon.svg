@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Happening monogram with an abstract arrival marker</title>
+  <rect width="512" height="512" fill="#18251f"/>
+  <g fill="none" stroke="#65715f" stroke-width="1.5" opacity="0.3">
+    <path d="M285-20c-87 85 82 107 49 197S235 283 291 365s-15 117-31 167"/>
+    <path d="M331-20c-87 85 82 107 49 197S281 283 337 365s-15 117-31 167"/>
+    <path d="M377-20c-87 85 82 107 49 197S327 283 383 365s-15 117-31 167"/>
+    <path d="M423-20c-87 85 82 107 49 197S373 283 429 365s-15 117-31 167"/>
+  </g>
+  <text x="48" y="368" font-family="Liberation Sans, sans-serif" font-size="312" font-weight="700" fill="#eee9d9">H</text>
+  <g fill="none" stroke="#bba778" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M319 430l59-78-37-71 37-127" stroke-width="5"/>
+    <circle cx="378" cy="154" r="61" stroke-width="1.5" opacity="0.3"/>
+    <circle cx="378" cy="154" r="27" stroke-width="2.5"/>
+    <circle cx="378" cy="352" r="5" stroke-width="2" fill="#18251f"/>
+  </g>
+  <circle cx="378" cy="154" r="9" fill="#d0bb89"/>
+</svg>

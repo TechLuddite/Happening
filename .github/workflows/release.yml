@@ -1,0 +1,126 @@
+name: Build and release
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Test standalone packaging
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
+
+      - name: Read version and validate release notes
+        id: version
+        run: |
+          version="$(python3 scripts/pack.py --print-version)"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          python3 scripts/pack.py --release-notes > "$RUNNER_TEMP/happening-release-notes.md"
+
+      - name: Pack
+        run: python3 scripts/pack.py
+
+      - name: Upload package and checksum
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: Happening
+          path: |
+            dist/Happening.vmz
+            dist/Happening.vmz.sha256
+          if-no-files-found: error
+
+  release:
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: happening-release
+      cancel-in-progress: false
+    env:
+      GH_TOKEN: ${{ github.token }}
+      VERSION: ${{ needs.build.outputs.version }}
+    steps:
+      - name: Checkout tested commit
+        uses: actions/checkout@v7.0.1
+
+      - name: Download tested package
+        uses: actions/download-artifact@v8.0.1
+        with:
+          name: Happening
+          path: dist
+
+      - name: Verify downloaded checksum
+        working-directory: dist
+        run: sha256sum --check Happening.vmz.sha256
+
+      - name: Check whether this version was released
+        id: existing
+        env:
+          GH_API_URL: ${{ github.api_url }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import urllib.error
+          import urllib.request
+
+          repository = os.environ["GITHUB_REPOSITORY"]
+          tag = "v" + os.environ["VERSION"]
+
+          def api(path):
+              request = urllib.request.Request(
+                  os.environ["GH_API_URL"] + "/repos/" + repository + path,
+                  headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"],
+                           "Accept": "application/vnd.github+json",
+                           "X-GitHub-Api-Version": "2022-11-28"},
+              )
+              try:
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      return json.load(response)
+              except urllib.error.HTTPError as error:
+                  if error.code == 404:
+                      error.close()
+                      return None
+                  raise
+
+          released = api("/releases/tags/" + tag) is not None
+          if not released:
+              reference = api("/git/ref/tags/" + tag)
+              if reference:
+                  target = reference["object"]
+                  for _ in range(8):
+                      if target["type"] != "tag":
+                          break
+                      annotated = api("/git/tags/" + target["sha"])
+                      if annotated is None:
+                          raise RuntimeError("Existing annotated tag could not be resolved")
+                      target = annotated["object"]
+                  if target["type"] != "commit" or target["sha"] != os.environ["GITHUB_SHA"]:
+                      raise RuntimeError(f"{tag} already points to another commit; refusing to retag")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write("released=" + str(released).lower() + "\n")
+          if released:
+              print(f"{tag} already released; preserving its tag and assets")
+          PY
+
+      - name: Publish new version
+        if: steps.existing.outputs.released == 'false'
+        run: |
+          python3 scripts/pack.py --release-notes > "$RUNNER_TEMP/happening-release-notes.md"
+          gh release create "v${VERSION}" dist/Happening.vmz dist/Happening.vmz.sha256 \
+            --title "Happening ${VERSION}" \
+            --notes-file "$RUNNER_TEMP/happening-release-notes.md" \
+            --target "$GITHUB_SHA"

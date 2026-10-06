@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">Happening — Every shelter exit brings an event.</title>
+  <desc id="description">Original typographic mod branding with abstract map contours and a route reaching an arrival marker. Road to Vostok / TechLuddite.</desc>
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111b19"/>
+      <stop offset="1" stop-color="#23342d"/>
+    </linearGradient>
+    <linearGradient id="shade">
+      <stop offset="0" stop-color="#111b19" stop-opacity="0.98"/>
+      <stop offset="0.55" stop-color="#111b19" stop-opacity="0.88"/>
+      <stop offset="1" stop-color="#111b19" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="#687568" stroke-width="1" opacity="0.16"/>
+      <circle cx="0" cy="0" r="2" fill="#7a8474" opacity="0.25"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#ground)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <g fill="none" stroke="#65715f" stroke-width="1.5" opacity="0.28">
+    <path d="M845-20C747 126 962 167 908 322S711 426 813 594s32 257-36 330"/>
+    <path d="M900-20C801 121 1009 181 956 326S770 434 862 591s28 258-27 333"/>
+    <path d="M955-20C850 115 1059 187 1004 330S831 441 910 589s26 257-18 335"/>
+    <path d="M1010-20C909 112 1104 194 1054 333s-166 124-94 256 21 252-13 335"/>
+    <path d="M1470-30c-88 109-46 170-94 208s-181 33-234 120-43 177 33 246 74 157-32 207-98 122-77 176"/>
+    <path d="M1536-30c-96 111-46 185-114 229s-177 27-226 99-31 145 34 209 97 177-9 234-111 117-97 186"/>
+    <path d="M1602-30c-91 129-51 205-123 257s-172 6-226 76-25 133 37 188 103 188-6 255-118 115-104 181"/>
+    <path d="M1668-30c-98 139-50 225-136 279s-174 8-222 71-17 101 42 160 109 188 9 271-114 112-111 176"/>
+    <path d="M1110 80c77 22 108-68 187-48s79 122 40 175-129 5-164 40-118-51-63-167Z"/>
+    <path d="M1143 88c65 18 92-42 147-28s56 91 25 130-99 9-132 31-76-52-40-133Z"/>
+    <path d="M1176 97c45 14 69-16 105-9s32 56 13 82-66 13-88 20-51-42-30-93Z"/>
+  </g>
+  <rect width="1130" height="900" fill="url(#shade)"/>
+  <g fill="none" stroke="#bba778" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1093 747l54-94-38-74 102-100 39-114" stroke-width="4" opacity="0.85"/>
+    <path d="M1093 747l-30 52" stroke-width="4" stroke-dasharray="3 14" opacity="0.5"/>
+    <circle cx="1250" cy="365" r="106" stroke-width="1" opacity="0.15"/>
+    <circle cx="1250" cy="365" r="68" stroke-width="1.5" opacity="0.3"/>
+    <circle cx="1250" cy="365" r="29" stroke-width="2" opacity="0.9"/>
+    <path d="M1250 253v16m0 192v16m-112-112h16m192 0h16" stroke-width="1.5" opacity="0.55"/>
+    <circle cx="1147" cy="653" r="6" stroke-width="2" fill="#18251f"/>
+    <circle cx="1109" cy="579" r="6" stroke-width="2" fill="#18251f"/>
+  </g>
+  <circle cx="1250" cy="365" r="10" fill="#d0bb89"/>
+  <g font-family="Liberation Sans, sans-serif">
+    <path d="M110 148h38" stroke="#bba778" stroke-width="3"/>
+    <text x="168" y="155" fill="#9aa395" font-size="20" font-weight="700" letter-spacing="3">ROAD TO VOSTOK MOD</text>
+    <text x="102" y="457" fill="#eee9d9" font-size="160" font-weight="700" letter-spacing="-7">HAPPENING</text>
+    <text x="110" y="529" fill="#c0c5b5" font-size="38">Every shelter exit brings an event.</text>
+    <path d="M110 747h845" stroke="#6d7769" stroke-width="1" opacity="0.6"/>
+    <text x="110" y="800" fill="#919c8d" font-size="22" letter-spacing="0.5">Road to Vostok / TechLuddite</text>
+  </g>
+</svg>

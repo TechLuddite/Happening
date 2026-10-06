@@ -1,0 +1,7 @@
+/dist/
+*.vmz
+*.zip
+__pycache__/
+*.py[cod]
+.godot/
+.DS_Store
