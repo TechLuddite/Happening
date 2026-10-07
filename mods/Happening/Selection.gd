@@ -17,10 +17,12 @@ static func candidates(system) -> Array:
 	for event in system.events.events:
 		if event.function not in METHODS:
 			continue
-		if not event.map.is_empty() and event.map != system.map.mapName:
-			continue
-		if not event.zone.is_empty() and event.zone != system.map.mapType:
-			continue
+		# Driver runs on any map with usable vehicle paths, not only Highway.
+		if event.function != "Driver":
+			if not event.map.is_empty() and event.map != system.map.mapName:
+				continue
+			if not event.zone.is_empty() and event.zone != system.map.mapType:
+				continue
 		if usable(system, event.function):
 			result.append(event)
 	return result

@@ -57,10 +57,15 @@ func _on_transition() -> void:
 	var transition = _lib._caller
 	if not is_instance_valid(transition):
 		return
-	if transition.gameData.isDead or transition.locked or transition.tutorialExit or not transition.shelterExit:
+	if not _enters_zone(transition):
 		return
 	_pending_target = transition.nextMap
 	_pending_source = weakref(transition)
+
+
+# Shelter exits and zone-to-zone travel both get a guaranteed event.
+func _enters_zone(transition) -> bool:
+	return not transition.gameData.isDead and not transition.locked and not transition.tutorialExit and not transition.shelterEnter
 
 
 func _on_load_scene(destination: String) -> void:
@@ -69,7 +74,7 @@ func _on_load_scene(destination: String) -> void:
 	_cancel_btr_timers()
 	var source = _pending_source.get_ref() if _pending_source != null else null
 	if destination == _pending_target and is_instance_valid(source):
-		if not source.gameData.isDead and not source.locked and source.shelterExit and not source.tutorialExit:
+		if _enters_zone(source):
 			_arrival_target = destination
 	_pending_target = ""
 	_pending_source = null

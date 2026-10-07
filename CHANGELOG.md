@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1
+
+- Zone-to-zone travel now gets the same guaranteed, announced event as leaving a shelter. Entering a shelter, tutorial travel, and loading a saved game keep stock scheduling.
+- Driver can appear on any map with usable vehicle paths: Highway, Outpost, School, Village, Airfield, Apartments, and Terminal. The bus is larger than the Punisher car, so roads outside Highway are untested for clipping.
+- Tested against game 0.2.0.5, Steam build 25710663, Metro 3.4.2, and Godot 4.6.3 with automated scheduler and hook integration checks. In-game testing of both changes is pending.
+
 ## 0.1.0
 
 - Guarantee a geographically valid event on every successful shelter exit into a game zone, with a large map/event announcement after it spawns.
