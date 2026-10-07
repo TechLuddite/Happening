@@ -26,7 +26,7 @@ Ordinary zone-to-zone travel keeps stock scheduling, with Fighter Jets disabled.
 
 ## Requirements
 
-Tested with Road to Vostok **0.2.0.5 (Build 2)** and **Metro Mod Loader 3.4.1**. Game updates can change the event system; check compatibility before updating.
+Tested with Road to Vostok **0.2.0.5 (Build 2)** and **Metro Mod Loader 3.4.1 and 3.4.2**. Game updates can change the event system; check compatibility before updating.
 
 The player confirmed working repeated shelter exits. Automated Godot 4.6.3 checks also cover announcements, scheduling, spawn prerequisites, BTR rules, and Metro hook integration. Other maps and event combinations still need broader gameplay coverage.
 
