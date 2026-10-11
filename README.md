@@ -26,14 +26,14 @@ Entering a shelter and loading a saved game keep stock scheduling, with Fighter 
 
 ## Requirements
 
-Tested with Road to Vostok **0.2.0.5 (Build 2)** and **Metro Mod Loader 3.4.1 and 3.4.2**. Game updates can change the event system; check compatibility before updating.
+Tested with Road to Vostok **0.2.1.0 (Build 2)** and **Metro Mod Loader 3.4.2**, and earlier with 0.2.0.5 and Metro 3.4.1. Game updates can change the event system; check compatibility before updating.
 
-The player confirmed working repeated shelter exits. Automated Godot 4.6.3 checks also cover announcements, scheduling, spawn prerequisites, BTR rules, and Metro hook integration. Other maps and event combinations still need broader gameplay coverage.
+Player testing on 0.2.1.0 confirms shelter exits and zone-to-zone travel. Automated Godot 4.6.3 checks also cover announcements, scheduling, spawn prerequisites, BTR rules, and Metro hook integration. Some map and event combinations have not been played yet.
 
 ## Install
 
 1. Install [Metro Mod Loader](https://github.com/ametrocavich/vostok-mod-loader). Its `modloader.gd` and `override.cfg` go next to `RTV.exe`.
-2. Download **Happening.vmz** from [GitHub Releases](https://github.com/TechLuddite/Happening/releases/latest) or Happening's mod-site listing. Use the `.vmz` asset rather than GitHub's source archive.
+2. Download **Happening.vmz** from [GitHub Releases](https://github.com/TechLuddite/Happening/releases/latest), [ModWorkshop](https://modworkshop.net/mod/59405) or [Vostok Mods](https://vostokmods.net/mod/happening). Use the `.vmz` asset rather than GitHub's source archive.
 3. Put `Happening.vmz` in the game's `mods` folder, for example `steamapps/common/Road to Vostok/mods/Happening.vmz`.
 4. Launch the game, enable Happening on Metro's Mods tab, and launch modded.
 5. Leave a shelter or travel to another zone. Allow the game's map initialization to finish; Nomad Gatherings need an additional short setup before their announcement.

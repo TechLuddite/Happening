@@ -2,7 +2,7 @@
 
 Public repository: [TechLuddite/Happening](https://github.com/TechLuddite/Happening). Mod-site owners: [TechLuddite on ModWorkshop](https://modworkshop.net/user/techluddite) and [TechLuddite on VostokMods](https://vostokmods.net/user/techluddite).
 
-The GitHub repository is public. ModWorkshop and VostokMods listings remain unpublished drafts. Version 0.1.0 uses the runtime already tested by the player. Building and running this repository's packaging checks need only Python's standard library.
+The GitHub repository is public. Live listings: [ModWorkshop 59405](https://modworkshop.net/mod/59405) and [Vostok Mods `happening`](https://vostokmods.net/mod/happening). Building and running this repository's packaging checks need only Python's standard library.
 
 ## Build the release files
 
@@ -28,31 +28,24 @@ An existing release is preserved. An existing tag pointing to a different commit
 
 Download the resulting release asset and check its checksum before using it for the site submissions. The GitHub source archives are not the mod download.
 
-## ModWorkshop
+## Mod sites
 
-1. Sign in as TechLuddite and open [Upload Mod](https://modworkshop.net/upload).
-2. Use [distribution/modworkshop.md](distribution/modworkshop.md) for listing fields and description. Road to Vostok is game 864; the existing Fixes/Tweaks category is 932.
-3. Upload `Happening.vmz`, set version 0.1.0, and link the public GitHub source repository. Add `artwork/cover.png` and optional gameplay screenshots.
-4. Review the listing, publish it, and record the actual mod URL/ID. Add the VostokMods link after that listing exists.
+After each GitHub release, update both listings by hand with the release's `Happening.vmz`:
 
-## VostokMods
+1. ModWorkshop [59405](https://modworkshop.net/mod/59405): upload the file with its version and label, then paste the short description and description from [distribution/modworkshop.md](distribution/modworkshop.md).
+2. Vostok Mods [`happening`](https://vostokmods.net/mod/happening): add the version with the same file and tested game versions, then paste the summary and description from [distribution/vostokmods.md](distribution/vostokmods.md). Keep the AI assistance disclosure enabled, consistent with the site's [content rules](https://vostokmods.net/legal/rules).
 
-1. Sign in as TechLuddite and open [New mod](https://vostokmods.net/new/mod).
-2. Use [distribution/vostokmods.md](distribution/vostokmods.md) for the name, summary, license, and AI disclosure. Request slug `happening` if available and create the mod page.
-3. In the new page's settings, add the description, dependency, tested game version, and version 0.1.0 with the same `Happening.vmz`. Add `artwork/cover.png`, source link, version notes, and the actual ModWorkshop URL.
-4. Keep the AI assistance disclosure enabled for code/documentation, consistent with the project's credits and the site's [content rules](https://vostokmods.net/legal/rules). Review the listing before publication and record its actual slug/URL.
-
-Both site descriptions are prepared, but categories, tags, and supported-game-version choices should use the options present in their live forms. No listing IDs or URLs have been fabricated.
+Neither site accepts API uploads: ModWorkshop's API rules allow GET requests only, and Vostok Mods has no documented write API.
 
 ## Update feed and later versions
 
-The 0.1.0 manifest deliberately has no `[updates]` source because the listings do not exist yet. After publication, choose one live listing as Metro's canonical update feed and add its actual identity in the next version:
+The manifest has no `[updates]` source yet. Both listings now exist, so a later version can name one as Metro's update feed:
 
 ```ini
 [updates]
-source="modworkshop:ACTUAL_MOD_ID"
+source="modworkshop:59405"
 ```
 
-Or use `source="vostokmods:ACTUAL_PUBLISHED_SLUG"`. These are examples to fill with real published values, not entries to ship verbatim.
+Or `source="vostokmods:01a110a0-092f-7ced-8ae4-82d806a63192"` (Metro accepts the slug or the ID; the ID survives a rename).
 
 For each later release, update `mod.txt` and add its matching `## X.Y.Z` changelog section. Keep development and maintained-release manifest/runtime copies identical. Validate gameplay changes against the current game in the development workspace; this repository's standalone tests validate distribution, not gameplay. Merge the tested version to `main` to publish its GitHub release, then update both mod-site downloads with that same asset. Do not alter assets or retag a version that is already released.
