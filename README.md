@@ -26,9 +26,9 @@ Entering a shelter and loading a saved game keep stock scheduling, with Fighter 
 
 ## Requirements
 
-Tested with Road to Vostok **0.2.1.0 (Build 2)** and **Metro Mod Loader 3.4.2**, and earlier with 0.2.0.5 and Metro 3.4.1. Game updates can change the event system; check compatibility before updating.
+Tested with Road to Vostok **0.2.2.0 (Build 2)** and **Metro Mod Loader 3.4.2**, and earlier with 0.2.1.0 and Metro 3.4.2, and 0.2.0.5 and Metro 3.4.1. Game updates can change the event system; check compatibility before updating.
 
-Player testing on 0.2.1.0 confirms shelter exits and zone-to-zone travel. Automated Godot 4.6.3 checks also cover announcements, scheduling, spawn prerequisites, BTR rules, and Metro hook integration. Some map and event combinations have not been played yet.
+Player testing on 0.2.2.0 confirms shelter exits and zone-to-zone travel. Automated Godot 4.6.3 checks also cover announcements, scheduling, spawn prerequisites, BTR rules, and Metro hook integration. Some map and event combinations have not been played yet.
 
 ## Install
 
