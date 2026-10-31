@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.2
+
+- Nomad Gatherings are no longer chosen once every Area 05 Nomad has been killed. Since game 0.2.3.0 the Nomad population is limited, and a gathering at that point would be announced but empty, with hostile AI still on the map.
+- The event from the previous visit is tried last, so the same event does not run twice in a row unless nothing else on the map can spawn.
+- Metro can now check ModWorkshop for Happening updates.
+- Automated checks run against game 0.2.3.0 (Steam build 26303644), Metro 3.4.2 and Godot 4.6.3.
+
 ## 0.1.1
 
 - Zone-to-zone travel now gets the same guaranteed, announced event as leaving a shelter. Entering a shelter, tutorial travel, and loading a saved game keep stock scheduling.

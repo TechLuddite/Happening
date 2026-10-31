@@ -39,13 +39,13 @@ Neither site accepts API uploads: ModWorkshop's API rules allow GET requests onl
 
 ## Update feed and later versions
 
-The manifest has no `[updates]` source yet. Both listings now exist, so a later version can name one as Metro's update feed:
+Since 0.1.2 the manifest names ModWorkshop as Metro's update feed:
 
 ```ini
 [updates]
 source="modworkshop:59405"
 ```
 
-Or `source="vostokmods:01a110a0-092f-7ced-8ae4-82d806a63192"` (Metro accepts the slug or the ID; the ID survives a rename).
+Vostok Mods rewrites this line in its uploaded copy to `source="vostokmods:<mod id>"`, so its file differs from the GitHub asset in that line only.
 
 For each later release, update `mod.txt` and add its matching `## X.Y.Z` changelog section. Keep development and maintained-release manifest/runtime copies identical. Validate gameplay changes against the current game in the development workspace; this repository's standalone tests validate distribution, not gameplay. Merge the tested version to `main` to publish its GitHub release, then update both mod-site downloads with that same asset. Do not alter assets or retag a version that is already released.
