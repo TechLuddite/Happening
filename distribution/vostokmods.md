@@ -9,7 +9,7 @@ Live listing: [vostokmods.net/mod/happening](https://vostokmods.net/mod/happenin
 | Name | Happening |
 | Summary | Every trip into a zone brings an event, announced with the map name on screen. |
 | Slug | happening |
-| Version | 0.1.1 |
+| Version | 0.1.2 |
 | Download | `dist/Happening.vmz` from the matching GitHub release |
 | License | MIT |
 | Tested game versions | Add 0.2.2.0. The page already lists 0.2.1.0, 0.2.0.5, 0.2.0.3 and 0.2.0.0 |

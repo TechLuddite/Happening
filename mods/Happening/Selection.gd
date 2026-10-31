@@ -40,7 +40,7 @@ static func usable(system, method: String) -> bool:
 	elif method == "CrashSite":
 		return _markers(system.crashes)
 	elif method == "Gathering":
-		return _markers(system.gatherings) and is_instance_valid(system.AISpawner) and system.AISpawner.has_method("Deactivate")
+		return _markers(system.gatherings) and is_instance_valid(system.AISpawner) and system.AISpawner.has_method("Deactivate") and _nomads_remain(system)
 	elif method == "Bogeyman":
 		var ai = system.AISpawner
 		if not is_instance_valid(ai) or not ai.has_method("SpawnBoss") or ai.lurks.is_empty():
@@ -50,6 +50,12 @@ static func usable(system, method: String) -> bool:
 				return false
 		return is_instance_valid(ai.BPool) and ai.BPool.has_node("AI_Bogeyman") and is_instance_valid(ai.enemies)
 	return true
+
+
+static func _nomads_remain(system) -> bool:
+	# From game 0.2.3.0 a gathering is empty once every Area 05 Nomad is dead.
+	var simulation = system.get_node_or_null("/root/Simulation")
+	return simulation == null or not ("nomadsRemaining" in simulation) or simulation.nomadsRemaining > 0
 
 
 static func _markers(node) -> bool:

@@ -10,9 +10,9 @@ Live listing: [modworkshop.net/mod/59405](https://modworkshop.net/mod/59405), ow
 | Short description | Every trip into a zone brings an event, announced with the map name on screen. |
 | Game | Road to Vostok (game ID 864) |
 | Category | Fixes/Tweaks (category ID 932) |
-| Version | 0.1.1 |
+| Version | 0.1.2 |
 | Download | `dist/Happening.vmz` from the matching GitHub release |
-| File label | Happening 0.1.1 |
+| File label | Happening 0.1.2 |
 | License | MIT |
 | Source repository | `https://github.com/TechLuddite/Happening` |
 | Required mod | Metro Mod Loader 3.4.1 or newer ([listing](https://modworkshop.net/mod/55623)) |
