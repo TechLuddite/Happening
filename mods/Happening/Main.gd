@@ -11,6 +11,7 @@ var _pending_source: WeakRef
 var _arrival_target := ""
 var _visits: Dictionary = {}
 var _btr_timers: Dictionary = {}
+var _last_event := ""
 
 
 func _ready() -> void:
@@ -176,6 +177,9 @@ func _schedule_visit(visit_id: int) -> void:
 		return
 	var remaining: Array = _visits[visit_id].candidates.duplicate()
 	remaining.shuffle()
+	# The previous visit's event goes last so it repeats only when nothing else spawns.
+	var repeats := remaining.filter(func(event): return event.function == _last_event)
+	remaining = remaining.filter(func(event): return event.function != _last_event) + repeats
 	for event in remaining:
 		system = _system_for(visit_id)
 		if system == null:
@@ -200,6 +204,7 @@ func _schedule_visit(visit_id: int) -> void:
 		if system == null:
 			return
 		if Selection.spawn_count(system, event.function) > before:
+			_last_event = event.function
 			var event_name: String = Selection.LABELS[event.function]
 			_banner.announce(system.map.mapName, event_name, system.map)
 			print("Happening: " + system.map.mapName + " | " + event_name)
