@@ -12,7 +12,7 @@ Live listing: [vostokmods.net/mod/happening](https://vostokmods.net/mod/happenin
 | Version | 0.1.2 |
 | Download | `dist/Happening.vmz` from the matching GitHub release |
 | License | MIT |
-| Tested game versions | Add 0.2.2.0. The page already lists 0.2.1.0, 0.2.0.5, 0.2.0.3 and 0.2.0.0 |
+| Tested game versions | 0.2.3.0 |
 | Source code | `https://github.com/TechLuddite/Happening` |
 | Dependency | Metro Mod Loader 3.4.1 or newer |
 | AI-generated/assisted content | Yes: code and documentation were developed with AI assistance |
@@ -42,6 +42,6 @@ BTR keeps its stock unlocks, probability, and timing, and can appear alongside t
 
 Disable Happening in Metro to turn it off.
 
-Tested on Road to Vostok 0.2.2.0 (Build 2) with Metro 3.4.2, and earlier on 0.2.1.0 with Metro 3.4.2 and 0.2.0.5 with Metro 3.4.1. Player testing confirms shelter exits and zone-to-zone travel; automated event, banner, and hook checks pass. The Events tab's remaining descriptions and unlock labels still show vanilla information.
+Tested on Road to Vostok 0.2.3.0 (Build 2) with Metro 3.4.2, and earlier on 0.2.2.0 and 0.2.1.0 with Metro 3.4.2 and 0.2.0.5 with Metro 3.4.1. Player testing confirms shelter exits and zone-to-zone travel; automated event, banner, and hook checks pass. The Events tab's remaining descriptions and unlock labels still show vanilla information.
 
 Also on [ModWorkshop](https://modworkshop.net/mod/59405). Source: [TechLuddite/Happening](https://github.com/TechLuddite/Happening). License: MIT. Created by TechLuddite with AI-assisted code and documentation.
