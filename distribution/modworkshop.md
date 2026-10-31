@@ -42,6 +42,6 @@ BTR keeps its stock unlocks, probability, and timing, and can appear alongside t
 
 Disable Happening in Metro to turn it off.
 
-Tested on Road to Vostok 0.2.3.0 (Build 2) with Metro 3.4.2, and earlier on 0.2.2.0 and 0.2.1.0 with Metro 3.4.2 and 0.2.0.5 with Metro 3.4.1. Player testing confirms shelter exits and zone-to-zone travel; automated event, banner, and hook checks pass. The Events tab's remaining descriptions and unlock labels still show vanilla information.
+Tested on Road to Vostok 0.2.3.1 (Build 2) with Metro 3.4.2, and earlier on 0.2.2.0 and 0.2.1.0 with Metro 3.4.2 and 0.2.0.5 with Metro 3.4.1. Player testing confirms shelter exits and zone-to-zone travel; automated event, banner, and hook checks pass. The Events tab's remaining descriptions and unlock labels still show vanilla information.
 
 Also on [Vostok Mods](https://vostokmods.net/mod/happening). Source: [TechLuddite/Happening](https://github.com/TechLuddite/Happening). License: MIT. Created by TechLuddite with AI-assisted code and documentation.
